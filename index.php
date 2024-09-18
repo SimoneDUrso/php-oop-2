@@ -18,7 +18,7 @@ include __DIR__ . '/models/data.php';
 <body>
     <div class="container mt-5">
         <div class="row">
-            <?php foreach ($prodotti as $prodotto): ?>
+            <?php foreach ($prodotti as $prodotto) { ?>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <div class="card-title">
@@ -31,7 +31,7 @@ include __DIR__ . '/models/data.php';
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php } ?>
         </div>
     </div>
 </body>
