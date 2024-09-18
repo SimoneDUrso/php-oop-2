@@ -5,48 +5,59 @@
 }
 
 body {
-    background-color: #f4f4f9;
     font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
-/* Stile per le card */
+h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
+    margin-bottom: 20px;
 }
 
-/* Hover effect */
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-/* Stile per il titolo delle card */
 .card-title {
-    background-color: #4a90e2;
+    background: linear-gradient(45deg, #3498db, #9b59b6);
     color: white;
-    padding: 10px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
 }
 
-/* Stile per il corpo delle card */
 .card-body {
     padding: 20px;
-    background-color: #fff;
+    text-align: center;
 }
 
-/* Stile per i testi all'interno delle card */
-.card-body p,
-.card-body span {
+.card-body p {
+    color: #7f8c8d;
     font-size: 1.2rem;
-    color: #333;
 }
 
-/* Stile per l'icona della categoria */
-.card-body .fs-3 {
-    font-size: 2rem;
+.card-body span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
