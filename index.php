@@ -32,8 +32,7 @@ class Categoria
     }
 }
 
-$gatto = new Categoria('Gatto', '🐱');
-$cane = new Categoria('Cane', '🐶');
+
 
 // CLASSE CIBO
 class Cibo extends Prodotto
@@ -86,23 +85,24 @@ class Cucce extends Prodotto
     }
 }
 
-// ISTANZE DELLE SOTTOCLASSI
-$cibo_cane = new Cibo('Cibo per Cani -', '15€ -', $cane, 'Pollo');
-$gioco_gatto = new Giochi('Palla per Gatti -', '5€ -', $gatto, 'Plastica');
-$cuccia_cane = new Cucce('Cuccia Grande -', '50€ -', $cane, 'Grande');
+// ISTANZE SOTTOCLASSE
+$gatto = new Categoria('Gatto', '🐱');
+$cane = new Categoria('Cane', '🐶');
 
-// ISTANZE PRODOTTO
-$guinzaglio = new Prodotto('Guinzaglio', '20€', $cane);
-$erba_gatta = new Prodotto('Erba Gatta', '10€', $gatto);
+// ISTANZE DEI PRODOTTI
+$prodotti = [
+    new Cibo('Cibo per Cani', '15€', $cane, 'Pollo'),
+    new Giochi('Palla per Gatti', '5€', $gatto, 'Plastica'),
+    new Cucce('Cuccia Grande', '50€', $cane, 'Grande')
+];
 
-// var_dump($guinzaglio);
-echo $cibo_cane->infoProdotto();
-echo '<hr>';
-echo $gioco_gatto->infoProdotto();
-echo '<hr>';
-echo $cuccia_cane->infoProdotto();
+// VISUALIZZIAMO A SCHERMO I PRODOTTI
 
-
+// echo $cibo_cane->infoProdotto();
+// echo '<hr>';
+// echo $palla_gatto->infoProdotto();
+// echo '<hr>';
+// echo $cuccia_cane->infoProdotto();
 
 ?>
 
@@ -112,11 +112,30 @@ echo $cuccia_cane->infoProdotto();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>php-oop-2</title>
 </head>
 
 <body>
-
+    <div class="container mt-5">
+        <div class="row">
+            <?php foreach ($prodotti as $prodotto): ?>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-title">
+                            <h2 class="text-center fw-bold">Prodotto: <?php echo $prodotto->nome_prodotto ?></h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="fs-3"><span class="fw-bold">Prezzo Prodotto:</span> <?php echo $prodotto->prezzo ?> </p>
+                            <span class="fs-3"><span class="fw-bold">Prodotto per:</span> <?php echo $prodotto->categoria->tipo_animale ?>
+                                <span class="fs-3"><?php echo $prodotto->categoria->icona_categoria ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </body>
 
 </html>
