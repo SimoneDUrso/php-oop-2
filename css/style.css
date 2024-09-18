@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Stile per le card */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Stile per il titolo delle card */
+.card-title {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Stile per il corpo delle card */
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Stile per i testi all'interno delle card */
+.card-body p,
+.card-body span {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Stile per l'icona della categoria */
+.card-body .fs-3 {
+    font-size: 2rem;
+}
