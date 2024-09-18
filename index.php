@@ -35,8 +35,56 @@ class Categoria
 $gatto = new Categoria('Gatto', '🐱');
 $cane = new Categoria('Cane', '🐶');
 
+// CLASSE CIBO
+class Cibo extends Prodotto
+{
+    public $gusto;
+
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_gusto)
+    {
+        parent::__construct($_nome_prodotto, $_prezzo, $_categoria); // Chiama il costruttore della classe genitore
+        $this->gusto = $_gusto;
+    }
+
+    public function infoProdotto()
+    {
+        return parent::infoProdotto() . ' Gusto: ' . $this->gusto;
+    }
+}
+
 // CLASSE GIOCHI
-class Giochi {}
+class Giochi extends Prodotto
+{
+    public $materiale;
+
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_materiale)
+    {
+        parent::__construct($_nome_prodotto, $_prezzo, $_categoria); // Chiama il costruttore della classe genitore
+        $this->materiale = $_materiale;
+    }
+
+    public function infoProdotto()
+    {
+        return parent::infoProdotto() . ' Materiale: ' . $this->materiale;
+    }
+}
+
+// CLASSE CUCCE
+class Cucce extends Prodotto
+{
+    public $dimensione;
+
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_dimensione)
+    {
+        parent::__construct($_nome_prodotto, $_prezzo, $_categoria); // Chiama il costruttore della classe genitore
+        $this->dimensione = $_dimensione;
+    }
+
+    public function infoProdotto()
+    {
+        return parent::infoProdotto() . ' Dimensione: ' . $this->dimensione;
+    }
+}
 
 // ISTANZE PRODOTTO
 $guinzaglio = new Prodotto('Guinzaglio', '20 euro', $cane);
