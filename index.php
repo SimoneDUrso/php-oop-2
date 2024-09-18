@@ -38,34 +38,34 @@ $cane = new Categoria('Cane', '🐶');
 // CLASSE CIBO
 class Cibo extends Prodotto
 {
-    public $gusto;
+    public $nome_cibo;
 
-    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_gusto)
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_nome_cibo)
     {
         parent::__construct($_nome_prodotto, $_prezzo, $_categoria); // Chiama il costruttore della classe genitore
-        $this->gusto = $_gusto;
+        $this->nome_cibo = $_nome_cibo;
     }
 
     public function infoProdotto()
     {
-        return parent::infoProdotto() . ' Gusto: ' . $this->gusto;
+        return parent::infoProdotto() . ' Cibo: ' . $this->nome_cibo;
     }
 }
 
 // CLASSE GIOCHI
 class Giochi extends Prodotto
 {
-    public $materiale;
+    public $tipo_di_gioco;
 
-    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_materiale)
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_tipo_di_gioco)
     {
         parent::__construct($_nome_prodotto, $_prezzo, $_categoria); // Chiama il costruttore della classe genitore
-        $this->materiale = $_materiale;
+        $this->tipo_di_gioco = $_tipo_di_gioco;
     }
 
     public function infoProdotto()
     {
-        return parent::infoProdotto() . ' Materiale: ' . $this->materiale;
+        return parent::infoProdotto() . ' Gioco: ' . $this->tipo_di_gioco;
     }
 }
 
@@ -86,14 +86,21 @@ class Cucce extends Prodotto
     }
 }
 
+// ISTANZE DELLE SOTTOCLASSI
+$cibo_cane = new Cibo('Cibo per Cani -', '15€ -', $cane, 'Pollo');
+$gioco_gatto = new Giochi('Palla per Gatti -', '5€ -', $gatto, 'Plastica');
+$cuccia_cane = new Cucce('Cuccia Grande -', '50€ -', $cane, 'Grande');
+
 // ISTANZE PRODOTTO
-$guinzaglio = new Prodotto('Guinzaglio', '20 euro', $cane);
-$erba_gatta = new Prodotto('Erba Gatta', '10 euro', $gatto);
+$guinzaglio = new Prodotto('Guinzaglio', '20€', $cane);
+$erba_gatta = new Prodotto('Erba Gatta', '10€', $gatto);
 
 // var_dump($guinzaglio);
-echo $guinzaglio->infoProdotto();
+echo $cibo_cane->infoProdotto();
 echo '<hr>';
-echo $erba_gatta->infoProdotto();
+echo $gioco_gatto->infoProdotto();
+echo '<hr>';
+echo $cuccia_cane->infoProdotto();
 
 
 
