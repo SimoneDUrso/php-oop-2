@@ -17,6 +17,7 @@ include __DIR__ . '/models/data.php';
 
 <body>
     <div class="container mt-5">
+        <h1 class="text-center mb-5 fw-bold">Pet Shop</h1>
         <div class="row">
             <?php foreach ($prodotti as $prodotto) { ?>
                 <div class="col-12 col-md-6 col-lg-4">
@@ -25,9 +26,11 @@ include __DIR__ . '/models/data.php';
                             <h2 class="text-center fw-bold">Prodotto: <?php echo $prodotto->nome_prodotto ?></h2>
                         </div>
                         <div class="card-body text-center">
+                            <!-- Aggiungiamo l'immagine del prodotto -->
+                            <img src="<?php echo $prodotto->immagine_prodotto ?>" alt="<?php echo $prodotto->nome_prodotto ?>" class="img-fluid mb-3">
                             <p class="fs-3"><span class="fw-bold">Prezzo Prodotto:</span> <?php echo $prodotto->prezzo ?> </p>
                             <span class="fs-3"><span class="fw-bold">Prodotto per:</span> <?php echo $prodotto->categoria->tipo_animale ?>
-                                <span class="fs-3"><?php echo $prodotto->categoria->icona_categoria ?></span>
+                                <span class="fs-3"><?php echo $prodotto->categoria->icona_categoria ?>
                         </div>
                     </div>
                 </div>

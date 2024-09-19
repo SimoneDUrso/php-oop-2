@@ -6,8 +6,9 @@ class Prodotto
     public $nome_prodotto;
     public $prezzo;
     public $categoria;
+    public $immagine_prodotto; // Aggiungiamo l'attributo immagine
 
-    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria)
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_immagine_prodotto)
     {
         // Aggiungo il try Catch per l'attributo prezzo della classe prodotto
         try {
@@ -17,22 +18,20 @@ class Prodotto
 
             $this->prezzo = $_prezzo . "€";
         } catch (Exception $e) {
-
-            // Se c'è un errore, il prezzo sarà il messaggio di errore
             $this->prezzo = $e->getMessage();
         }
 
         $this->nome_prodotto = $_nome_prodotto;
         $this->categoria = $_categoria;
+        $this->immagine_prodotto = $_immagine_prodotto;
     }
 
     public function infoProdotto()
     {
-        return $this->nome_prodotto . ' ' . $this->prezzo . ' ' . $this->categoria->tipo_animale . '' . $this->categoria->icona_categoria;
+        return $this->nome_prodotto . ' ' . $this->prezzo . ' ' . $this->categoria->tipo_animale . ' ' . $this->categoria->icona_categoria;
     }
 }
 
-// SOTTOCLASSE CATEGORIA
 class Categoria
 {
     public $tipo_animale;
@@ -50,9 +49,9 @@ class Cibo extends Prodotto
 {
     public $nome_cibo;
 
-    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_nome_cibo)
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_immagine_prodotto, $_nome_cibo)
     {
-        parent::__construct($_nome_prodotto, $_prezzo, $_categoria);
+        parent::__construct($_nome_prodotto, $_prezzo, $_categoria, $_immagine_prodotto);
         $this->nome_cibo = $_nome_cibo;
     }
 
@@ -67,9 +66,9 @@ class Giochi extends Prodotto
 {
     public $tipo_di_gioco;
 
-    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_tipo_di_gioco)
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_immagine_prodotto, $_tipo_di_gioco)
     {
-        parent::__construct($_nome_prodotto, $_prezzo, $_categoria);
+        parent::__construct($_nome_prodotto, $_prezzo, $_categoria, $_immagine_prodotto);
         $this->tipo_di_gioco = $_tipo_di_gioco;
     }
 
@@ -84,9 +83,9 @@ class Cucce extends Prodotto
 {
     public $dimensione;
 
-    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_dimensione)
+    function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria, $_immagine_prodotto, $_dimensione)
     {
-        parent::__construct($_nome_prodotto, $_prezzo, $_categoria);
+        parent::__construct($_nome_prodotto, $_prezzo, $_categoria, $_immagine_prodotto);
         $this->dimensione = $_dimensione;
     }
 
