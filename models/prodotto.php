@@ -9,8 +9,20 @@ class Prodotto
 
     function __construct($_nome_prodotto, $_prezzo, Categoria $_categoria)
     {
+        // Aggiungo il try Catch per l'attributo prezzo della classe prodotto
+        try {
+            if (!is_numeric($_prezzo) || $_prezzo < 0) {
+                throw new Exception("Prezzo non valido");
+            }
+
+            $this->prezzo = $_prezzo . "€";
+        } catch (Exception $e) {
+
+            // Se c'è un errore, il prezzo sarà il messaggio di errore
+            $this->prezzo = $e->getMessage();
+        }
+
         $this->nome_prodotto = $_nome_prodotto;
-        $this->prezzo = $_prezzo;
         $this->categoria = $_categoria;
     }
 

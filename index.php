@@ -27,7 +27,7 @@ include __DIR__ . '/models/data.php';
                         <div class="card-body text-center">
                             <p class="fs-3"><span class="fw-bold">Prezzo Prodotto:</span> <?php echo $prodotto->prezzo ?> </p>
                             <span class="fs-3"><span class="fw-bold">Prodotto per:</span> <?php echo $prodotto->categoria->tipo_animale ?>
-                                <span class="fs-3"><?php echo $prodotto->categoria->icona_categoria ?>
+                                <span class="fs-3"><?php echo $prodotto->categoria->icona_categoria ?></span>
                         </div>
                     </div>
                 </div>
